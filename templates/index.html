@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input {
+            width: 250px;
+            height: 35px;
+            margin: 8px 0;
+            padding: 5px;
+            font-size: 16px;
+        }
+        button {
+            width: 125px;
+            height: 45px;
+            font-size: 16px;
+            margin-top: px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+</head>
+<body>
+    <h1>Diabetes Prediction</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+        <input type="number" step="any" name="pregnancies" placeholder="Pregnancies" required>
+        <input type="number" step="any" name="glucose" placeholder="Glucose" required>
+        <input type="number" step="any" name="blood_pressure" placeholder="Blood Pressure" required>
+        <input type="number" step="any" name="skin_thickness" placeholder="Skin Thickness" required>
+        <input type="number" step="any" name="insulin" placeholder="Insulin" required>
+        <input type="number" step="any" name="bmi" placeholder="BMI" required>
+        <input type="number" step="any" name="diabetes_pedigree_function" placeholder="Diabetes Pedigree Function" required>
+        <input type="number" step="any" name="age" placeholder="Age" required>
+        <button type="submit">Predict</button>
+    </form>
+    <h2>{{ prediction_text }}</h2>
+</body>
+</html>
